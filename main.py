@@ -6,9 +6,9 @@ TITLE = "Canadian Map Quiz"
 IMAGE_PATH = "canadian_map.gif"
 MAPPING_DATA_PATH = "mapping_data.csv"
 ALIGNMENT = "center"
-END_FONT = ('Courier New', 30, "bold")
-LARGE_FONT = ('Courier New', 12, "bold")
-SMALL_FONT = ('Courier New', 7, "bold")
+END_FONT = ('Arial', 30, "bold")
+LARGE_FONT = ('Arial', 12, "bold")
+SMALL_FONT = ('Arial', 7, "bold")
 COUNT = 13
 
 screen = turtle.Screen()

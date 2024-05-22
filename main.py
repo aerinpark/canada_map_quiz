@@ -29,9 +29,13 @@ label.hideturtle()
 correct_guesses = []
 
 correct_answer = 0
-
-while correct_answer < COUNT:
-    answer = (turtle.textinput(title=f"{correct_answer}/{COUNT} correct", prompt="Type a name of province/territory")).title()
+game_on = True
+while correct_answer < COUNT and game_on:
+    answer = (turtle.textinput(title=f"{correct_answer}/{COUNT} correct", prompt="Type a name of province/territory"))
+    if answer != None:
+        answer = answer.title()
+    else:
+        game_on = False
     if answer not in correct_guesses and answer in provinces:
         x = mapping_data.loc[mapping_data.province==answer, 'province_x'].item()
         y = mapping_data.loc[mapping_data.province==answer, 'province_y'].item()
@@ -66,9 +70,12 @@ for city in capitals:
     
     answer = ""
     while answer != city:
-        answer = (turtle.textinput(title=f"{correct_answer}/{COUNT} correct", prompt="Type the name of the marked capital city")).lower()
-        print(city)
-        print(answer)
+        answer = (turtle.textinput(title=f"{correct_answer}/{COUNT} correct", prompt="Type the name of the marked capital city"))
+        if answer == None:
+            answer = "exit"
+        else:
+            answer = answer.lower()
+            
         if answer == city.lower() or answer == "skip":
             if answer == city.lower():
                 correct_answer += 1
